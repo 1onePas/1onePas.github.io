@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>paaniix | Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#090a0f',
+                        neonRed: '#ff2a5f',
+                        neonBlue: '#00d2ff',
+                        cardDark: '#12151f',
+                        cardBorder: '#1f2438'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #090a0f;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        .neon-glow-red {
+            box-shadow: 0 0 25px rgba(255, 42, 95, 0.25);
+        }
+        .neon-glow-blue {
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.25);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #ff2a5f 0%, #00d2ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gradient-border {
+            background: linear-gradient(135deg, rgba(255,42,95,0.4), rgba(0,210,255,0.4));
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2438;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff2a5f;
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-gray-100 min-h-screen flex flex-col selection:bg-neonRed selection:text-white">
+
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-darkBg/80 border-b border-cardBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#hero" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-neonRed to-neonBlue flex items-center justify-center text-white font-black text-xl shadow-lg neon-glow-blue group-hover:scale-105 transition-transform">
+                    P
+                </div>
+                <span class="text-xl font-bold tracking-tight text-white group-hover:text-neonBlue transition-colors">
+                    <span class="text-gradient">paaniix</span>
+                </span>
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#about" class="hover:text-neonBlue transition-colors">About</a>
+                <a href="#skills" class="hover:text-neonBlue transition-colors">Tech Stack</a>
+                <a href="#experience" class="hover:text-neonBlue transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-neonBlue transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-neonBlue transition-colors">Contact</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <a href="#contact" class="hidden sm:inline-flex items-center px-4 py-2 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-neonRed to-neonBlue hover:opacity-95 shadow-lg neon-glow-red transition-all transform hover:-translate-y-0.5">
+                    <i class="fa-brands fa-discord mr-2"></i> devpaaniix
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white p-2 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cardDark border-b border-cardBorder px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-cardBorder/50">About</a>
+            <a href="#skills" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-cardBorder/50">Tech Stack</a>
+            <a href="#experience" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-cardBorder/50">Experience</a>
+            <a href="#projects" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-cardBorder/50">Projects</a>
+            <a href="#contact" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-cardBorder/50">Contact</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section id="hero" class="relative pt-20 pb-32 overflow-hidden flex items-center justify-center">
+            <!-- Background glow gradients -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-neonRed/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-1/3 left-1/3 w-96 h-96 bg-neonBlue/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-cardDark border border-cardBorder text-xs font-semibold text-neonBlue mb-6 shadow-inner">
+                    <span class="w-2 h-2 rounded-full bg-neonBlue animate-ping"></span>
+                    <span>Software & Game Systems Architect</span>
+                </div>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6">
+                    Hi, I'm <span class="text-gradient">paaniix</span>
+                </h1>
+                <p class="max-w-2xl mx-auto text-lg sm:text-xl text-gray-400 mb-10 leading-relaxed">
+                    Engineering robust backend architectures, high-performance game servers, immersive ecosystems, and scalable applications from low-level systems to modern web interfaces.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#projects" class="px-8 py-4 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-neonRed to-neonBlue shadow-lg neon-glow-red hover:scale-105 transition-all">
+                        Explore Projects <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#contact" class="px-8 py-4 rounded-xl text-sm font-bold text-gray-200 bg-cardDark border border-cardBorder hover:border-neonBlue transition-all">
+                        Get in Touch
+                    </a>
+                </div>
+
+                <!-- Quick Badge Highlight -->
+                <div class="mt-16 pt-8 border-t border-cardBorder/60 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
+                    <div class="p-4 rounded-2xl bg-cardDark/50 border border-cardBorder">
+                        <div class="text-2xl font-black text-neonBlue mb-1">ÖBB</div>
+                        <div class="text-xs text-gray-400">Train Driver since 19.</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-cardDark/50 border border-cardBorder">
+                        <div class="text-2xl font-black text-neonRed mb-1">IT Student</div>
+                        <div class="text-xs text-gray-400">IT Student since 17.</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-cardDark/50 border border-cardBorder">
+                        <div class="text-2xl font-black text-white mb-1">Multi-Lang</div>
+                        <div class="text-xs text-gray-400">C, C++, C#, Python, Go, ...</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-cardDark/50 border border-cardBorder">
+                        <div class="text-2xl font-black text-neonBlue mb-1">devpaaniix</div>
+                        <div class="text-xs text-gray-400">Discord Username</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 bg-cardDark/30 border-y border-cardBorder">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="inline-block px-3 py-1 rounded-md bg-neonRed/10 text-neonRed font-semibold text-xs mb-4">BACKGROUND</div>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+                            Driven by code, performance, and immersive creation.
+                        </h2>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            I am Pascal (<span class="text-neonBlue font-semibold">paaniix</span>), a versatile software and game systems developer with a deep passion for building robust server architectures, custom game modes, and full-stack utilities. 
+                        </p>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Over the years particularly from 2021 through early 2025 I specialized heavily in the <span class="text-white font-medium">FiveM</span> modding and server development landscape, building comprehensive Lua-powered backends and client-side systems. Beyond gaming ecosystems, I build across multiple programming paradigms spanning systems programming in C/C++/Rust, high-level automation in Python and Go, and responsive web apps.
+                        </p>
+                        <div class="flex items-center space-x-6">
+                            <div class="flex items-center space-x-2 text-gray-300">
+                                <i class="fa-solid fa-circle-check text-neonBlue"></i>
+                                <span>Clean & Scalable Code</span>
+                            </div>
+                            <div class="flex items-center space-x-2 text-gray-300">
+                                <i class="fa-solid fa-circle-check text-neonRed"></i>
+                                <span>Optimized Performance</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-neonRed to-neonBlue opacity-30 blur-lg"></div>
+                        <div class="relative bg-cardDark border border-cardBorder rounded-2xl p-8 shadow-2xl">
+                            <div class="flex items-center space-x-3 mb-6">
+                                <div class="w-3 h-3 rounded-full bg-neonRed"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-neonBlue"></div>
+                                <span class="text-xs text-gray-500 font-mono ml-2">paaniix@core:~</span>
+                            </div>
+                            <pre class="font-mono text-xs sm:text-sm text-gray-300 overflow-x-auto leading-relaxed"><code><span class="text-neonBlue">const</span> developer = {
+    handle: <span class="text-neonRed">"paaniix"</span>,
+    discord: <span class="text-neonRed">"devpaaniix"</span>,
+    focus: [
+        <span class="text-green-400">"Game Systems"</span>, 
+        <span class="text-green-400">"FiveM Frameworks"</span>, 
+        <span class="text-green-400">"Full-Stack Dev"</span>,
+        <span class="text-green-400">"Anik Crimelife Lead Dev"</span>,
+        <span class="text-green-400">"Avia Crimelife Owner and Lead Dev"</span>,
+        <span class="text-green-400">"Revo Crimelife Project Manager and Dev"</span>,
+        <span class="text-green-400">"Berlin City I Dev"</span>,
+        <span class="text-green-400">"Lots of botnets..."</span>
+
+    ],
+    timeline: <span class="text-yellow-400">"2018 - Early 2025 & Beyond"</span>,
+    status: <span class="text-neonBlue">"Available for innovation"</span>
+};</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <div class="inline-block px-3 py-1 rounded-md bg-neonBlue/10 text-neonBlue font-semibold text-xs mb-4">TECHNOLOGY ECOSYSTEM</div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Tech Stack & Languages</h2>
+                    <p class="text-gray-400">Equipped with a broad spectrum of programming languages, tools, and game platforms.</p>
+                </div>
+
+                <!-- Languages Grid with Visual Icons -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+                    <!-- Python -->
+                    <div class="bg-cardDark border border-cardBorder hover:border-neonBlue rounded-2xl p-6 text-center group transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-python"></i>
+                        </div>
+                        <h3 class="font-bold text-white mb-1">Python</h3>
+                        <p class="text-xs text-gray-400">Automation & Scripting</p>
+                    </div>
+
+                    <!-- HTML/CSS -->
+                    <div class="bg-cardDark border border-cardBorder hover:border-neonRed rounded-2xl p-6 text-center group transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-html5"></i>
+                        </div>
+                        <h3 class="font-bold text-white mb-1">HTML / CSS</h3>
+                        <p class="text-xs text-gray-400">UI & Styling</p>
+                    </div>
+
+                    <!-- C -->
+                    <div class="bg-cardDark border border-cardBorder hover:border-neonBlue rounded-2xl p-6 text-center group transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform font-bold font-mono">
+                            C
+                        </div>
+                        <h3 class="font-bold text-white mb-1">C Language</h3>
+                        <p class="text-xs text-gray-400">Systems Programming</p>
+                    </div>
+
+                    <!-- C++ -->
+                    <div class="bg-cardDark border border-cardBorder hover:border-neonRed rounded-2xl p-6 text-center group transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform font-bold font-mono">
+                            C++
+                        </div>
+                        <h3 class="font-bold text-white mb-1">C++</h3>
+                        <p class="text-xs text-gray-400">High-Performance Engines</p>
+                    </div>
+
+                    <!-- C# -->
+                    <div class="bg-cardDark border border-cardBorder hover:border-neonBlue rounded-2xl p-6 text-center group transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform font-bold font-mono">
+                            C#
+                        </div>
+                        <h3 class="font-bold text-white mb-1">C#</h3>
+                        <p class="text-xs text-gray-400">Game & App Logic</p>
+                    </div>
+
+                    <!-- C+ (Notation variant / C++ extension) -->
+                    <div class="bg-cardDark border border-cardBorder hover:border-neonRed rounded-2xl p-6 text-center group transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform font-bold font-mono">
+                            C+
+                        </div>
+                        <h3 class="font-bold text-white mb-1">C+ Ecosystem</h3>
+                        <p class="text-xs text-gray-400">Custom Tooling</p>
+                    </div>
+
+                    <!-- Go -->
+                    <div class="bg-cardDark border border-cardBorder hover:border-neonBlue rounded-2xl p-6 text-center group transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform font-bold">
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+                        <h3 class="font-bold text-white mb-1">Go (Golang)</h3>
+                        <p class="text-xs text-gray-400">Concurrent Backends</p>
+                    </div>
+
+                    <!-- JavaScript -->
+                    <div class="bg-cardDark border border-cardBorder hover:border-neonRed rounded-2xl p-6 text-center group transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-js"></i>
+                        </div>
+                        <h3 class="font-bold text-white mb-1">JavaScript</h3>
+                        <p class="text-xs text-gray-400">Frontend & Node.js</p>
+                    </div>
+
+                    <!-- Java -->
+                    <div class="bg-cardDark border border-cardBorder hover:border-neonBlue rounded-2xl p-6 text-center group transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-java"></i>
+                        </div>
+                        <h3 class="font-bold text-white mb-1">Java</h3>
+                        <p class="text-xs text-gray-400">Object-Oriented Apps</p>
+                    </div>
+
+                    <!-- Lua / Luau -->
+                    <div class="bg-cardDark border border-cardBorder hover:border-neonRed rounded-2xl p-6 text-center group transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-blue-600/10 text-blue-500 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform font-bold">
+                            <i class="fa-solid fa-moon"></i>
+                        </div>
+                        <h3 class="font-bold text-white mb-1">Lua / Luau</h3>
+                        <p class="text-xs text-gray-400">FiveM & Roblox Scripting</p>
+                    </div>
+
+                    <!-- Rust -->
+                    <div class="bg-cardDark border border-cardBorder hover:border-neonBlue rounded-2xl p-6 text-center group transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-amber-600/10 text-amber-500 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform font-bold">
+                            <i class="fa-solid fa-gear"></i>
+                        </div>
+                        <h3 class="font-bold text-white mb-1">Rust</h3>
+                        <p class="text-xs text-gray-400">Safe Systems & WebAssembly</p>
+                    </div>
+
+                    <!-- Ecosystem / Platforms -->
+                    <div class="bg-cardDark border border-cardBorder hover:border-neonRed rounded-2xl p-6 text-center group transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-cubes"></i>
+                        </div>
+                        <h3 class="font-bold text-white mb-1">Ecosystems</h3>
+                        <p class="text-xs text-gray-400">FiveM, Roblox, Minecraft</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-24 bg-cardDark/30 border-y border-cardBorder">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <div class="inline-block px-3 py-1 rounded-md bg-neonRed/10 text-neonRed font-semibold text-xs mb-4">PROFESSIONAL JOURNEY</div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Experience & Specializations</h2>
+                    <p class="text-gray-400">Explore my background across game frameworks, server management, and full-stack development.</p>
+                </div>
+
+                <!-- Tab Navigation Buttons -->
+                <div class="flex flex-wrap justify-center gap-3 mb-12" role="tablist">
+                    <button onclick="switchTab('fivem')" id="btn-fivem" class="px-6 py-3 rounded-xl font-semibold text-sm transition-all bg-gradient-to-r from-neonRed to-neonBlue text-white shadow-lg neon-glow-red">
+                        <i class="fa-solid fa-gamepad mr-2"></i> FiveM Dev (2021-2025)
+                    </button>
+                    <button onclick="switchTab('systems')" id="btn-systems" class="px-6 py-3 rounded-xl font-semibold text-sm transition-all bg-cardDark border border-cardBorder text-gray-300 hover:text-white hover:border-neonBlue">
+                        <i class="fa-solid fa-microchip mr-2"></i> Systems & Backend
+                    </button>
+                    <button onclick="switchTab('web')" id="btn-web" class="px-6 py-3 rounded-xl font-semibold text-sm transition-all bg-cardDark border border-cardBorder text-gray-300 hover:text-white hover:border-neonBlue">
+                        <i class="fa-solid fa-code mr-2"></i> Web & Tooling
+                    </button>
+                </div>
+
+                <!-- Tab Contents Container -->
+                <div class="max-w-4xl mx-auto">
+                    <!-- Tab 1: FiveM -->
+                    <div id="tab-fivem" class="tab-content bg-cardDark border border-cardBorder rounded-2xl p-8 shadow-xl">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 pb-6 border-b border-cardBorder">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">FiveM Server & Ecosystem Development</h3>
+                                <p class="text-neonBlue text-sm mt-1">Timeline: 2021 – Early 2025</p>
+                            </div>
+                            <span class="mt-2 md:mt-0 inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-neonRed/10 text-neonRed border border-neonRed/20">
+                                Lua / Luau Mastered
+                            </span>
+                        </div>
+                        <p class="text-gray-300 mb-6 leading-relaxed">
+                            Throughout my core development timeline from <span class="text-white font-semibold">2021 to early 2025</span>, I architected and engineered advanced roleplay and competitive FiveM multiplayer servers. Every single project and module in this span was built using <span class="text-neonBlue font-semibold">Lua</span> for robust backend server resource logic and client-side UI data binding.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-4 rounded-xl bg-darkBg border border-cardBorder">
+                                <div class="font-bold text-white mb-1 flex items-center"><i class="fa-solid fa-server text-neonRed mr-2"></i> Resource Architecture</div>
+                                <p class="text-xs text-gray-400">Optimized asynchronous server events, synchronized state bags, and minimized tick latency for 128+ concurrent players.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-darkBg border border-cardBorder">
+                                <div class="font-bold text-white mb-1 flex items-center"><i class="fa-solid fa-window-maximize text-neonBlue mr-2"></i> NUI Frontends</div>
+                                <p class="text-xs text-gray-400">Built responsive HTML/CSS/JS user interfaces embedded directly inside FiveM NUI frames, seamlessly bridged via Lua.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: Systems -->
+                    <div id="tab-systems" class="tab-content hidden bg-cardDark border border-cardBorder rounded-2xl p-8 shadow-xl">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 pb-6 border-b border-cardBorder">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">Systems Programming & Backends</h3>
+                                <p class="text-neonRed text-sm mt-1">C, C++, C#, Rust, Go, Python</p>
+                            </div>
+                            <span class="mt-2 md:mt-0 inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-neonBlue/10 text-neonBlue border border-neonBlue/20">
+                                Low-Level & Concurrency
+                            </span>
+                        </div>
+                        <p class="text-gray-300 mb-6 leading-relaxed">
+                            Engineering high-performance applications requires deep understanding of system memory management and thread concurrency. I develop fast backend utilities, custom CLI wrappers, and game engine bindings using C, C++, C#, Rust, and Go. Also coded lots of Private high powered Botnets. Quit in 2024 with Botnet Developing.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-4 rounded-xl bg-darkBg border border-cardBorder">
+                                <div class="font-bold text-white mb-1 flex items-center"><i class="fa-solid fa-microchip text-neonBlue mr-2"></i> Memory & Performance</div>
+                                <p class="text-xs text-gray-400">Writing low-overhead modules in C/C++ and Rust to ensure maximum efficiency under heavy workloads.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-darkBg border border-cardBorder">
+                                <div class="font-bold text-white mb-1 flex items-center"><i class="fa-solid fa-network-wired text-neonRed mr-2"></i> Concurrent APIs</div>
+                                <p class="text-xs text-gray-400">Building concurrent microservices and API handlers using Go and Python for rapid data processing.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: Web -->
+                    <div id="tab-web" class="tab-content hidden bg-cardDark border border-cardBorder rounded-2xl p-8 shadow-xl">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 pb-6 border-b border-cardBorder">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">Web Development & Tooling</h3>
+                                <p class="text-neonBlue text-sm mt-1">HTML, CSS, JavaScript, Frameworks</p>
+                            </div>
+                            <span class="mt-2 md:mt-0 inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                                Full-Stack Interface
+                            </span>
+                        </div>
+                        <p class="text-gray-300 mb-6 leading-relaxed">
+                            Creating polished, responsive web dashboards, admin panels, and portfolio platforms with modern styling standards like Tailwind CSS, vanilla JavaScript, and robust client-side state management.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-4 rounded-xl bg-darkBg border border-cardBorder">
+                                <div class="font-bold text-white mb-1 flex items-center"><i class="fa-solid fa-palette text-neonRed mr-2"></i> Responsive UI/UX</div>
+                                <p class="text-xs text-gray-400">Crafting sleek, mobile-friendly interfaces with advanced neon aesthetics, dark modes, and fluid layouts.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-darkBg border border-cardBorder">
+                                <div class="font-bold text-white mb-1 flex items-center"><i class="fa-solid fa-wrench text-neonBlue mr-2"></i> Developer Tooling</div>
+                                <p class="text-xs text-gray-400">Building automation scripts and web-based management dashboards for remote server administration.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <div class="inline-block px-3 py-1 rounded-md bg-neonBlue/10 text-neonBlue font-semibold text-xs mb-4">PORTFOLIO WORK</div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Featured Projects</h2>
+                    <p class="text-gray-400">A showcase of FiveM frameworks, game systems, and utility applications.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1: FiveM Core Framework -->
+                    <div class="bg-cardDark border border-cardBorder rounded-2xl overflow-hidden group hover:border-neonRed transition-all duration-300 flex flex-col">
+                        <div class="p-6 pb-4 bg-gradient-to-br from-cardDark to-darkBg border-b border-cardBorder">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-neonRed/10 text-neonRed">FiveM (2021-2025)</span>
+                                <i class="fa-solid fa-gamepad text-neonRed text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white group-hover:text-neonRed transition-colors">Advanced Roleplay Core</h3>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                                A comprehensive, high-performance server framework built entirely in <span class="text-white font-medium">Lua</span>. Features modular inventory systems, custom economy loops, optimized event dispatchers, and synchronized player states active between 2021 and early 2025.
+                            </p>
+                            <div>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="px-2.5 py-1 rounded-md text-xs bg-darkBg border border-cardBorder text-gray-300">Lua</span>
+                                    <span class="px-2.5 py-1 rounded-md text-xs bg-darkBg border border-cardBorder text-gray-300">FiveM</span>
+                                    <span class="px-2.5 py-1 rounded-md text-xs bg-darkBg border border-cardBorder text-gray-300">HTML/CSS</span>
+                                    <span class="px-2.5 py-1 rounded-md text-xs bg-darkBg border border-cardBorder text-gray-300">JavaScript</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs text-gray-500 pt-4 border-t border-cardBorder">
+                                    <span>Timeline: 2021 - 2025</span>
+                                    <span class="text-neonBlue font-medium">Lua Backend</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: FiveM NUI Inventory & Dashboard -->
+                    <div class="bg-cardDark border border-cardBorder rounded-2xl overflow-hidden group hover:border-neonBlue transition-all duration-300 flex flex-col">
+                        <div class="p-6 pb-4 bg-gradient-to-br from-cardDark to-darkBg border-b border-cardBorder">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-neonBlue/10 text-neonBlue">NUI Frontend</span>
+                                <i class="fa-solid fa-window-maximize text-neonBlue text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white group-hover:text-neonBlue transition-colors">NUI Inventory & MDT System</h3>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                                Sleek browser-based User Interface (NUI) for FiveM police and civilian management. Developed with modern HTML, CSS, and JavaScript, communicating instantly with Lua backend endpoints.
+                            </p>
+                            <div>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="px-2.5 py-1 rounded-md text-xs bg-darkBg border border-cardBorder text-gray-300">HTML/CSS</span>
+                                    <span class="px-2.5 py-1 rounded-md text-xs bg-darkBg border border-cardBorder text-gray-300">JavaScript</span>
+                                    <span class="px-2.5 py-1 rounded-md text-xs bg-darkBg border border-cardBorder text-gray-300">Lua</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs text-gray-500 pt-4 border-t border-cardBorder">
+                                    <span>Interactive UI</span>
+                                    <span class="text-neonRed font-medium">Client / Server</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Systems & Game Automation Tool -->
+                    <div class="bg-cardDark border border-cardBorder rounded-2xl overflow-hidden group hover:border-neonRed transition-all duration-300 flex flex-col">
+                        <div class="p-6 pb-4 bg-gradient-to-br from-cardDark to-darkBg border-b border-cardBorder">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-400">Systems & Go</span>
+                                <i class="fa-solid fa-gear text-purple-400 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">Server Daemon & CLI Utility</h3>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                                A high-efficiency background daemon written in Go and C++ for automating server backups, crash recovery, and real-time telemetry logging for multi-game server hosting environments.
+                            </p>
+                            <div>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="px-2.5 py-1 rounded-md text-xs bg-darkBg border border-cardBorder text-gray-300">Go</span>
+                                    <span class="px-2.5 py-1 rounded-md text-xs bg-darkBg border border-cardBorder text-gray-300">C++</span>
+                                    <span class="px-2.5 py-1 rounded-md text-xs bg-darkBg border border-cardBorder text-gray-300">Python</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs text-gray-500 pt-4 border-t border-cardBorder">
+                                    <span>Systems Tooling</span>
+                                    <span class="text-neonBlue font-medium">High Performance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 bg-cardDark/30 border-t border-cardBorder">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="inline-block px-3 py-1 rounded-md bg-neonRed/10 text-neonRed font-semibold text-xs mb-4">GET IN TOUCH</div>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Let's Build Something Amazing</h2>
+                <p class="text-gray-400 max-w-xl mx-auto mb-12">
+                    Have a project in mind, a server architecture inquiry, or want to collaborate? Connect with me directly via Discord or social channels.
+                </p>
+
+                <!-- Direct Clean Display Badges / Links -->
+                <div class="flex flex-wrap justify-center gap-6 max-w-2xl mx-auto">
+                    <!-- Discord Badge -->
+                    <div class="flex items-center space-x-4 bg-cardDark border border-cardBorder hover:border-neonBlue px-6 py-4 rounded-2xl shadow-lg transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-600/10 text-indigo-400 flex items-center justify-center text-2xl">
+                            <i class="fa-brands fa-discord"></i>
+                        </div>
+                        <div class="text-left">
+                            <div class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Discord</div>
+                            <div class="text-lg font-bold text-white font-mono select-all">devpaaniix</div>
+                        </div>
+                    </div>
+
+
+    </main>
+
+    <footer class="bg-darkBg border-t border-cardBorder py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-neonRed to-neonBlue flex items-center justify-center text-white font-bold text-sm">
+                    P
+                </div>
+                <span class="text-sm font-semibold text-white"> <span class="text-gradient">paaniix</span></span>
+            </div>
+            <p class="text-xs text-gray-500">
+                &copy; 2026 paaniix. All rights reserved.
+            </p>
+            <div class="flex items-center space-x-4 text-gray-400 text-sm">
+                <span class="inline-flex items-center text-xs text-neonBlue"><i class="fa-solid fa-circle text-[8px] mr-1.5 animate-pulse"></i> ...</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Experience & Skills Tab Switcher Function
+        function switchTab(tabId) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(el => el.classList.add('hidden'));
+
+            // Remove active styling from all buttons
+            const buttons = ['btn-fivem', 'btn-systems', 'btn-web'];
+            buttons.forEach(id => {
+                const btn = document.getElementById(id);
+                btn.className = "px-6 py-3 rounded-xl font-semibold text-sm transition-all bg-cardDark border border-cardBorder text-gray-300 hover:text-white hover:border-neonBlue";
+            });
+
+            // Show selected tab content
+            const activeContent = document.getElementById('tab-' + tabId);
+            if (activeContent) {
+                activeContent.classList.remove('hidden');
+            }
+
+            // Highlight selected button with neon theme
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if (activeBtn) {
+                activeBtn.className = "px-6 py-3 rounded-xl font-semibold text-sm transition-all bg-gradient-to-r from-neonRed to-neonBlue text-white shadow-lg neon-glow-red";
+            }
+        }
+    </script>
+</body>
+</html>
